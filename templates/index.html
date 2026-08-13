@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Design — Birthday Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- Full screen effects -->
+    <div id="birthdayEffects"></div>
+
+
+    <!-- Background balloons -->
+    <div class="balloon-background">
+
+        <div class="balloon b1"></div>
+        <div class="balloon b2"></div>
+        <div class="balloon b3"></div>
+        <div class="balloon b4"></div>
+        <div class="balloon b5"></div>
+        <div class="balloon b6"></div>
+        <div class="balloon b7"></div>
+        <div class="balloon b8"></div>
+        <div class="balloon b9"></div>
+        <div class="balloon b10"></div>
+        <div class="balloon b11"></div>
+        <div class="balloon b12"></div>
+
+    </div>
+
+
+    <div class="sparkle-layer"></div>
+
+
+    <!-- Music -->
+    <audio id="birthdayMusic" loop>
+
+        <source
+            src="/static/audio/happy-birthday.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="logo-cake">
+
+                <div class="cake-top">
+                    🎂
+                </div>
+
+                <span>
+                    Birthday Design
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="brand-tag">
+            Birthday Studio ✨
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =====================================================
+             SETUP
+        ====================================================== -->
+
+        <section
+            id="setup"
+            class="setup-section"
+        >
+
+            <div class="hero-copy">
+
+                <p class="eyebrow">
+                    MAKE A MEMORY ✦
+                </p>
+
+
+                <h1>
+
+                    Your Birthday,
+
+                    <br>
+
+                    <span>
+                        Beautifully Designed.
+                    </span>
+
+                </h1>
+
+
+                <p class="subtitle">
+
+                    Create a personalized birthday experience
+                    with your name, age, photos, videos and
+                    heartfelt prayers.
+
+                </p>
+
+            </div>
+
+
+
+            <form
+                id="birthdayForm"
+                class="card form-card"
+                enctype="multipart/form-data"
+            >
+
+                <div class="form-grid">
+
+
+                    <label>
+
+                        <span>
+                            Your name
+                        </span>
+
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder="e.g. Ehsan"
+                            required
+                        >
+
+                    </label>
+
+
+
+                    <label>
+
+                        <span>
+                            Date of birth
+                        </span>
+
+                        <input
+                            id="dob"
+                            name="dob"
+                            type="date"
+                            required
+                        >
+
+                    </label>
+
+
+
+                    <label>
+
+                        <span>
+                            Which birthday?
+                        </span>
+
+                        <input
+                            id="birthdayNumber"
+                            name="birthday_number"
+                            type="number"
+                            min="1"
+                            max="120"
+                            placeholder="e.g. 21"
+                            required
+                        >
+
+                    </label>
+
+
+
+                    <label class="upload-label">
+
+                        <span>
+
+                            Photos & videos
+
+                            <small>
+                                (as many as you like)
+                            </small>
+
+                        </span>
+
+
+                        <input
+                            id="media"
+                            name="media"
+                            type="file"
+                            accept="image/*,video/*"
+                            multiple
+                        >
+
+
+                        <div class="upload-box">
+
+                            ＋ Add memories
+
+                        </div>
+
+                    </label>
+
+
+                </div>
+
+
+                <div
+                    id="preview"
+                    class="preview-grid"
+                ></div>
+
+
+                <button
+                    class="primary-btn"
+                    type="submit"
+                >
+
+                    Create My Birthday
+
+                    <span>
+                        ✦
+                    </span>
+
+                </button>
+
+
+                <p class="tiny-note">
+
+                    Your memories stay in this local project
+                    unless you choose to upload/save them.
+
+                </p>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             COUNTDOWN
+        ====================================================== -->
+
+        <section
+            id="countdown"
+            class="countdown hidden"
+        >
+
+            <div id="countNumber">
+                3
+            </div>
+
+            <p>
+                Something beautiful is being prepared…
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BIRTHDAY
+        ====================================================== -->
+
+        <section
+            id="birthday"
+            class="birthday hidden"
+        >
+
+
+            <div class="birthday-inner">
+
+
+                <div class="birthday-decoration top-left">
+                    🎈
+                </div>
+
+                <div class="birthday-decoration top-right">
+                    🎈
+                </div>
+
+
+                <div class="confetti">
+
+                    ✦　✧　🎉　✧　✦　🎈　✦
+
+                </div>
+
+
+                <p class="eyebrow">
+
+                    ALHAMDULILLAH FOR ANOTHER YEAR ✨
+
+                </p>
+
+
+
+                <h2>
+                    Happy Birthday
+                </h2>
+
+
+                <h3 id="birthdayName">
+                    Your Name
+                </h3>
+
+
+                <div class="age-pill">
+
+                    Alhamdulillah
+
+                    <strong id="birthdayAge">
+                        21
+                    </strong>
+
+                    years
+
+                </div>
+
+
+
+                <!-- MUSIC -->
+
+                <button
+                    id="musicBtn"
+                    class="music-btn"
+                >
+
+                    🎵 Play Birthday Music
+
+                </button>
+
+
+
+                <!-- =====================================================
+                     MAIN PRAYER
+                ====================================================== -->
+
+                <div class="prayer-card">
+
+                    <div class="prayer-icon">
+                        🤲
+                    </div>
+
+                    <h4>
+                        A Special Prayer For You
+                    </h4>
+
+
+                    <p>
+
+                        May Allah bless your life with peace,
+                        barakah, good health, sincere happiness
+                        and beautiful opportunities.
+
+                        May He protect you from every hardship,
+                        guide your heart toward what is right,
+                        increase you in wisdom and surround you
+                        with people who genuinely care for you.
+
+                        May every coming year bring you closer
+                        to your dreams and closer to Allah.
+
+                        May your heart always have reasons to say
+                        <em>Alhamdulillah.</em>
+
+                        Ameen. 🤍
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =====================================================
+                     SECOND ENGLISH PRAYER
+                ====================================================== -->
+
+                <div class="prayer-card second-prayer">
+
+                    <div class="prayer-icon">
+                        🌙
+                    </div>
+
+
+                    <h4>
+                        May Your New Year Be Beautiful
+                    </h4>
+
+
+                    <p>
+
+                        May Allah put endless peace in your heart,
+                        light in your path and barakah in everything
+                        you do.
+
+                        May He grant you success without taking away
+                        your peace, wealth without taking away your
+                        happiness and knowledge that benefits you
+                        and others.
+
+                        May your future be brighter than your past
+                        and may every difficult chapter turn into
+                        a beautiful story.
+
+                        May Allah accept your duas and give you
+                        what is best for you, even when you don't
+                        know what is best for yourself.
+
+                        <strong>
+                            Ameen Ya Rabb-ul-Alameen. 🤍
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =====================================================
+                     URDU PRAYER
+                ====================================================== -->
+
+                <div class="prayer-card urdu-prayer">
+
+                    <div class="prayer-icon">
+                        🤲
+                    </div>
+
+
+                    <h4>
+                        آپ کے لیے خاص دعا
+                    </h4>
+
+
+                    <p>
+
+                        اللہ تعالیٰ آپ کی زندگی کو خوشیوں،
+                        سکون، برکت اور کامیابی سے بھر دے۔
+
+                        اللہ آپ کو ہمیشہ صحت مند رکھے،
+                        ہر مشکل اور پریشانی سے محفوظ رکھے
+                        اور آپ کے دل کو اطمینان عطا فرمائے۔
+
+                        اللہ آپ کے ہر جائز خواب کو پورا فرمائے،
+                        آپ کی دعاؤں کو قبول فرمائے اور آپ کے
+                        مستقبل کو آپ کے ماضی سے بھی زیادہ خوبصورت
+                        بنائے۔
+
+                        اللہ آپ کو نیک، مخلص اور محبت کرنے والے
+                        لوگوں کا ساتھ عطا فرمائے۔
+
+                        آپ کے ہر آنے والے سال میں مزید خوشیاں،
+                        کامیابیاں اور برکتیں نصیب ہوں۔
+
+                        اللہ آپ کو ہمیشہ اپنی حفاظت میں رکھے۔
+
+                        آمین یا رب العالمین۔ 🤍
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =====================================================
+                     MORE URDU
+                ====================================================== -->
+
+                <div class="prayer-card urdu-prayer">
+
+                    <div class="prayer-icon">
+                        🌙
+                    </div>
+
+
+                    <h4>
+                        ایک اور خوبصورت دعا
+                    </h4>
+
+
+                    <p>
+
+                        یا اللہ!
+
+                        اس نئی عمر کے سال کو اس کے لیے
+                        خیر و برکت والا بنا دے۔
+
+                        اس کے دل سے ہر غم دور فرما،
+                        اس کی ہر جائز خواہش پوری فرما،
+                        اس کے رزق میں برکت عطا فرما،
+                        اس کے علم میں اضافہ فرما اور
+                        اسے ہر قدم پر کامیابی عطا فرما۔
+
+                        اسے دنیا اور آخرت دونوں کی بھلائیاں
+                        نصیب فرما۔
+
+                        اس کے والدین کو صحت، خوشی اور لمبی عمر عطا فرما
+                        اور اس کے گھر کو ہمیشہ اپنی رحمتوں سے بھرے رکھ۔
+
+                        آمین۔ 🤍
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =====================================================
+                     MEMORIES
+                ====================================================== -->
+
+                <div class="memories-heading">
+
+                    <span>
+                        ✨
+                    </span>
+
+                    <h4>
+                        Beautiful Memories
+                    </h4>
+
+                    <span>
+                        ✨
+                    </span>
+
+                </div>
+
+
+                <p class="memory-subtitle">
+
+                    Every picture tells a story. 🤍
+
+                </p>
+
+
+                <!-- Gallery -->
+
+                <div
+                    id="gallery"
+                    class="gallery"
+                ></div>
+
+
+
+                <!-- =====================================================
+                     FINAL MESSAGE
+                ====================================================== -->
+
+                <div class="final-message">
+
+                    <div>
+                        🎂
+                    </div>
+
+                    <h4>
+                        Here's to another beautiful year!
+                    </h4>
+
+                    <p>
+
+                        May this chapter of your life be filled
+                        with unforgettable memories, genuine smiles,
+                        peaceful moments and countless blessings.
+
+                    </p>
+
+                    <div class="final-hearts">
+                        🤍 ✨ 🎈 ✨ 🤍
+                    </div>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="actions">
+
+                    <button
+                        id="saveBtn"
+                        class="secondary-btn"
+                    >
+                        Save Birthday File
+                    </button>
+
+
+                    <button
+                        id="newBtn"
+                        class="secondary-btn"
+                    >
+                        Create Another
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+        🎂 Birthday Design · Made for beautiful birthday memories
+
+    </footer>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
